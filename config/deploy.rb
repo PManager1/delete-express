@@ -2,7 +2,22 @@
 lock '3.1.0'
 
 set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+
+
+set :scm, :git
+set :repo_url, 'git@github.com:jpca999/delete-express.git'
+set :use_sudo, true
+
+set :log_level, :debug
+
+# Define where to put your application code
+set :deploy_to, "/home/ubuntu/capiTest" 
+
+set :pty, true
+
+set :format, :pretty
+
+
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }

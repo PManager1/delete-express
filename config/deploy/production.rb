@@ -6,8 +6,7 @@
 # Don't declare `role :all`, it's a meta role
 role :app, %w{ubuntu@54.69.25.251}
 
-role :web, %w{deploy@example.com}
-role :db,  %w{deploy@example.com}
+
 
 # Extended Server Syntax
 # ======================
@@ -15,7 +14,22 @@ role :db,  %w{deploy@example.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
-server '54.69.25.251', user: 'deploy', roles: %w{web app}, my_property: :my_value
+server '54.69.25.251', user: 'ubuntu', roles: %w{web app}, my_property: :my_value
+
+
+# set it globally
+
+
+ set :ssh_options, {
+   keys: %w(/Users/jay/.ssh/id_rsa),
+   forward_agent: false,
+   user: 'user'
+   # auth_methods: %w(password)
+ }
+
+
+
+
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
